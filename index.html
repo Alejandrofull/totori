@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre el Caballito de Totora, una embarcación ancestral de La Libertad, Perú. Conoce su historia, características y su importancia como Patrimonio Cultural de la Nación.">
+    <title>Caballito de Totora - Patrimonio de La Libertad</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ------------------- */
+        /* Variables y Estilos Globales */
+        /* ------------------- */
+        :root {
+            /* Paleta de Colores (Tema Claro) */
+            --bg-primary: #f0f4f8;
+            --bg-secondary: #FFFFFF;
+            --bg-accent: #E9ECEF;
+            --bg-footer: #00509D;
+            --color-primary: #00509D;
+            --color-secondary: #FFC107;
+            --text-primary: #212529;
+            --text-secondary: #495057;
+            --text-on-dark: #F8F9FA;
+            --shadow: 0px 8px 24px rgba(0, 80, 157, 0.1);
+            --shadow-hover: 0px 12px 32px rgba(0, 80, 157, 0.15);
+            --border-color: #DEE2E6;
+            --font-family: 'Poppins', sans-serif;
+            --radius: 16px;
+            --transition: all 0.3s ease-in-out;
+            --fs-h1: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+            --fs-h2: clamp(2rem, 4vw + 1rem, 3.5rem);
+            --fs-h3: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);
+        }
+
+        [data-theme='dark'] {
+            --bg-primary: #212529;
+            --bg-secondary: #2C3034;
+            --bg-accent: #343A40;
+            --bg-footer: #00509D;
+            --color-primary: #FFC107;
+            --color-secondary: #F8F9FA;
+            --text-primary: #E9ECEF;
+            --text-secondary: #ADB5BD;
+            --text-on-dark: #F8F9FA;
+            --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
+            --shadow-hover: 0px 12px 32px rgba(0, 0, 0, 0.5);
+            --border-color: #495057;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+        .grid-container { display: grid; gap: 2.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        a:focus-visible, button:focus-visible, .faq-question:focus-visible { outline: 3px solid var(--color-secondary); outline-offset: 3px; border-radius: 4px; }
+
+        /* Estilos de Header */
+        .header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 1.25rem 0; transition: var(--transition); background-color: transparent; }
+        .header.scrolled { background-color: var(--bg-secondary); box-shadow: var(--shadow); padding: 0.75rem 0; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.75rem; font-weight: 700; color: var(--text-on-dark); text-decoration: none; display: flex; align-items: center; transition: var(--transition); }
+        .header.scrolled .logo, .header.scrolled .nav-links a { color: var(--text-primary); }
+        .logo img { height: 35px; margin-right: 12px; filter: brightness(0) invert(1); transition: var(--transition); }
+        .header.scrolled .logo img { filter: none; }
+        .logo-text { font-size: 1.5rem; font-weight: 700; transition: var(--transition); opacity: 0; visibility: hidden; width: 0; }
+        .header.scrolled .logo-text { color: var(--color-primary); opacity: 1; visibility: visible; width: auto; margin-left: 5px;}
+        .nav-menu { display: flex; align-items: center; gap: 1.5rem; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: var(--text-on-dark); font-weight: 500; transition: var(--transition); position: relative; }
+        .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -5px; width: 0; height: 2px; background-color: var(--color-secondary); transition: width 0.3s ease-in-out; }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .header.scrolled .nav-links a:hover { color: var(--color-primary); }
+        .theme-switcher { background-color: rgba(255, 255, 255, 0.2); border-radius: 50px; padding: 0.25rem; cursor: pointer; display: flex; backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .header.scrolled .theme-switcher { background-color: rgba(0, 80, 157, 0.1); border: 1px solid rgba(0, 80, 157, 0.2); }
+        .theme-switcher .icon { font-size: 0.8rem; width: 1.5rem; height: 1.5rem; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: var(--transition); color: var(--text-on-dark); }
+        .header.scrolled .theme-switcher .icon { color: var(--color-primary); }
+        .theme-switcher .icon.active { background-color: var(--color-primary); color: var(--text-on-dark); box-shadow: var(--shadow); }
+        [data-theme='dark'] .theme-switcher .icon.active { background-color: var(--color-secondary); color: var(--color-primary); }
+        .hamburger { display: none; cursor: pointer; font-size: 1.5rem; color: var(--text-on-dark); z-index: 100; transition: var(--transition); background: none; border: none;}
+        .header.scrolled .hamburger { color: var(--color-primary); }
+        
+        /* Estilos de Hero */
+        .hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--text-on-dark); overflow: hidden; background: linear-gradient(rgba(0, 80, 157, 0.6), rgba(0, 80, 157, 0.6)), url('https://detrujillo.com/wp-content/uploads/2013/10/Huanchaco_Totora5.jpg'); background-size: cover; background-position: center; background-attachment: fixed; }
+        .hero-content { z-index: 1; padding: 0 24px; animation: fadeIn 1s ease-out; }
+        .hero h1 { font-size: var(--fs-h1); font-weight: 800; color: var(--color-secondary); text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); margin-bottom: 1.5rem; }
+        .hero p { max-width: 700px; margin: 0 auto 3rem; font-size: 1.2rem; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); }
+        .btn-primary { display: inline-block; background-color: var(--color-secondary); color: var(--color-primary); padding: 1.1rem 2.5rem; text-decoration: none; font-weight: 600; border-radius: 50px; transition: var(--transition); box-shadow: var(--shadow); border: none; font-size: 1rem; }
+        .btn-primary:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+
+        /* Estilos de Secciones */
+        .section { padding: 120px 0; text-align: center; }
+        .section:nth-child(even) { background-color: var(--bg-secondary); }
+        .section.dark-section { background-color: var(--color-primary); color: var(--text-on-dark); }
+        .section.dark-section .section-heading, .section.dark-section .section-subtitle, .section.dark-section p { color: var(--text-on-dark); }
+        .section-heading { font-size: var(--fs-h2); color: var(--color-primary); font-weight: 700; margin-bottom: 1.5rem; }
+        .section.dark-section .section-heading { color: var(--color-secondary); }
+        .section-subtitle { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .section.dark-section .section-subtitle { color: var(--text-on-dark); }
+
+        /* Estilos de Cards */
+        .card { background-color: var(--bg-secondary); padding: 2.5rem 2rem; border-radius: var(--radius); box-shadow: var(--shadow); transition: var(--transition); border: 1px solid var(--border-color); display: flex; flex-direction: column; align-items: center; text-align: center; height: 100%; }
+        #features .card { background-color: var(--bg-primary); }
+        .card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
+        .card .icon { font-size: 3rem; color: var(--color-primary); margin-bottom: 1.5rem; }
+        .card h3 { font-size: var(--fs-h3); color: var(--text-primary); margin-bottom: 0.5rem; flex-grow: 1; }
+        .card p { color: var(--text-secondary); }
+        .card.testimonial-card { text-align: left; border-left: 5px solid var(--color-secondary); background-color: var(--bg-primary); padding: 2rem; display: block; }
+        .section.dark-section .card.testimonial-card { background-color: var(--bg-accent); border-color: var(--color-secondary); }
+        .card.testimonial-card p { font-style: italic; margin-bottom: 1rem; color: var(--text-secondary); font-size: 1.1rem; }
+        .section.dark-section .card.testimonial-card p { color: var(--text-secondary); }
+        .card.testimonial-card .author { font-weight: 600; color: var(--text-primary); display: block; margin-bottom: 1rem; }
+        .section.dark-section .card.testimonial-card .author { color: var(--text-primary); }
+        .card.testimonial-card img { max-width: 100%; height: auto; border-radius: var(--radius); margin-top: 1rem; box-shadow: var(--shadow); }
+
+        /* Estilos de FAQ */
+        .faq-container { max-width: 800px; margin: 0 auto; text-align: left; }
+        .faq-item { background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius); margin-bottom: 1rem; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); }
+        .faq-item:hover { transform: translateY(-3px); }
+        .faq-question { padding: 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 1.1rem; color: var(--text-primary); background: none; border: none; width: 100%; text-align: left;}
+        .faq-question .icon { transition: transform 0.3s ease; color: var(--color-secondary); font-size: 1.2rem; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out, padding 0.4s ease; }
+        .faq-answer p { padding: 0 1.5rem 1.5rem; color: var(--text-secondary); }
+        .faq-item.active .faq-answer { max-height: 200px; }
+        .faq-item.active .faq-question .icon { transform: rotate(45deg); }
+        
+        /* Estilos de Footer */
+        footer { background-color: var(--bg-footer); color: var(--text-on-dark); padding: 4rem 0 2rem; text-align: center; }
+        .social-links { margin-bottom: 1.5rem; }
+        .social-links a { color: var(--text-on-dark); font-size: 1.5rem; margin: 0 0.75rem; transition: var(--transition); display: inline-block; }
+        .social-links a:hover { color: var(--color-secondary); transform: translateY(-5px); }
+        .copyright { color: var(--text-on-dark); }
+        
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .nav-links { display: none; }
+            .nav-menu.active .nav-links { display: flex; flex-direction: column; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: var(--bg-primary); justify-content: center; align-items: center; font-size: 1.5rem; z-index: 10; gap: 2.5rem;}
+            .nav-menu.active .nav-links a { color: var(--text-primary); }
+            .nav-menu.active .nav-links a:hover { color: var(--color-secondary); }
+            .hamburger { display: block; z-index: 20; }
+        }
+
+        /* ------------------- */
+        /* Botones Flotantes y Chatbot */
+        /* ------------------- */
+        .floating-buttons-container { position: fixed; bottom: 20px; right: 20px; z-index: 998; display: flex; flex-direction: column; gap: 10px; }
+        .floating-btn { width: 50px; height: 50px; background-color: var(--color-secondary); color: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; text-decoration: none; border: none; cursor: pointer; box-shadow: var(--shadow); transition: var(--transition); }
+        .floating-btn:hover { background-color: var(--color-primary); color: var(--color-secondary); box-shadow: var(--shadow-hover); transform: scale(1.1); }
+        
+        .back-to-top-btn { opacity: 0; visibility: hidden; transform: translateY(20px); }
+        .back-to-top-btn.show { opacity: 1; visibility: visible; transform: translateY(0); }
+
+        #chat-widget { position: fixed; bottom: 80px; right: 20px; width: 350px; max-width: 90vw; background-color: var(--bg-secondary); border-radius: var(--radius); box-shadow: var(--shadow-hover); z-index: 1000; overflow: hidden; display: flex; flex-direction: column; opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.95); transition: var(--transition); }
+        #chat-widget.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+        
+        .chat-header { padding: 1rem; background-color: var(--bg-accent); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); }
+        .chat-header h3 { margin: 0; font-size: 1.1rem; color: var(--text-primary); }
+        .chat-header .close-btn { background: none; border: none; color: var(--text-secondary); font-size: 1.2rem; cursor: pointer; }
+        
+        .chat-messages { flex-grow: 1; padding: 1rem; height: 300px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background-color: var(--bg-primary); }
+        
+        .chat-message { max-width: 80%; padding: 0.75rem 1rem; border-radius: 12px; line-height: 1.4; transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; opacity: 0; transform: translateY(20px); }
+        .chat-message.fade-in { opacity: 1; transform: translateY(0); }
+        .bot-message { background-color: var(--bg-accent); color: var(--text-primary); align-self: flex-start; border-bottom-left-radius: 2px; }
+        .user-message { background-color: var(--color-primary); color: var(--text-on-dark); align-self: flex-end; border-bottom-right-radius: 2px; }
+        .typing-indicator { font-style: italic; color: var(--text-secondary); align-self: flex-start; animation: dot-flashing 1s infinite; }
+        .typing-indicator span { opacity: 0; animation: dot-fade 1s infinite; }
+        .typing-indicator span:nth-child(1) { animation-delay: 0s; }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+        .chat-input-form { display: flex; padding: 0.5rem; border-top: 1px solid var(--border-color); background-color: var(--bg-secondary); }
+        #chat-input { flex-grow: 1; border: none; padding: 0.75rem; background-color: var(--bg-primary); color: var(--text-primary); border-radius: 50px; }
+        #chat-input:focus { outline: none; box-shadow: 0 0 0 2px var(--color-primary); }
+        #chat-send-btn { background: none; border: none; color: var(--color-primary); font-size: 1.5rem; cursor: pointer; padding: 0 0.75rem; transition: var(--transition); }
+        #chat-send-btn:hover { color: var(--color-secondary); }
+
+        @media (max-width: 768px) {
+            #chat-widget { bottom: 0; right: 0; width: 100%; max-width: 100%; border-radius: 0; height: 100vh; }
+            .chat-messages { height: calc(100vh - 120px); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes dot-flashing {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        @keyframes dot-fade {
+            0%, 80%, 100% { opacity: 0; }
+            40% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="container navbar">
+            <a href="#" class="logo" aria-label="Página de inicio del Gobierno Regional de La Libertad">
+                <img src="images/gob.png" alt="Logo Gobierno Regional">
+                 <img src="image.svg" alt="Logo Gobierno Regional">
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#features">Características</a></li>
+                    <li><a href="#history">Historia</a></li>
+                    <li><a href="#significance">Significado</a></li>
+                    <li><a href="#faq">Preguntas</a></li>
+                </ul>
+                <div class="theme-switcher" id="theme-switcher" role="radiogroup" aria-label="Cambiar tema de la página">
+                    <button class="icon" data-theme-value="light" aria-label="Activar tema claro" aria-pressed="true"><i class="fas fa-sun"></i></button>
+                    <button class="icon" data-theme-value="dark" aria-label="Activar tema oscuro" aria-pressed="false"><i class="fas fa-moon"></i></button>
+                </div>
+                <button class="hamburger" id="hamburger" aria-label="Abrir menú de navegación">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>El Caballito de Totora</h1>
+                <p>Una embarcación ancestral y una expresión de cultura viva, declarada Patrimonio Cultural de la Nación, originaria de la región de La Libertad, Perú.</p>
+                <a href="#features" class="btn-primary">Explora su legado</a>
+            </div>
+        </section>
+        
+        <section id="features" class="section">
+            <div class="container">
+                <h2 class="section-heading">Características Físicas y Composición</h2>
+                <p class="section-subtitle">Construido con materiales naturales y con una técnica milenaria, el caballito de totora es un ejemplo de diseño funcional y ecológico.</p>
+                <div class="grid-container">
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-ruler-combined"></i></div>
+                        <h3>Dimensiones</h3>
+                        <p>Longitud: 4.5 a 5 metros<br>Ancho: 0.60 a 1.00 metro<br>Altura: 0.40 metros</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-weight-hanging"></i></div>
+                        <h3>Peso y Capacidad</h3>
+                        <p>Con un peso aproximado de 50 kg, puede transportar a un pescador y su carga de pesca, demostrando su eficiencia.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-leaf"></i></div>
+                        <h3>Materiales</h3>
+                        <p>Elaborado artesanalmente con la planta acuática totora, ataduras naturales y un remo hecho de caña de Guayaquil.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="history" class="section dark-section">
+            <div class="container">
+                <h2 class="section-heading">Origen e Historia</h2>
+                <p class="section-subtitle">Con más de 3,500 años de antigüedad, el caballito de totora es una de las embarcaciones más antiguas y hazañas de ingeniería marítima de América.</p>
+                <div class="grid-container">
+                    <div class="card testimonial-card">
+                        <p>"Considerado uno de los primeros navíos del continente, ha sido una herramienta vital para la pesca en culturas como la Mochica y la Chimú."</p>
+                        <span class="author">- Origen Ancestral</span>
+                        <img src="https://detrujillo.com/wp-content/uploads/2013/10/Huanchaco_Totora5.jpg" alt="Pescadores con sus caballitos de totora en la playa de Huanchaco" loading="lazy">
+                    </div>
+                    <div class="card testimonial-card">
+                        <p>"Los hallazgos arqueológicos en Pampas de Gramalote, en Huanchaco, han revelado que este es el origen geográfico de esta milenaria tradición."</p>
+                        <span class="author">- Cuna Geográfica</span>
+                        <img src="https://www.shutterstock.com/image-photo/these-reed-boats-called-caballitos-600nw-2377367465.jpg" alt="Antiguos botes de totora alineados en la arena." loading="lazy">
+                    </div>
+                    <div class="card testimonial-card">
+                        <p>"La tradición de su construcción y uso se ha mantenido viva, siendo un claro ejemplo de cómo el conocimiento ancestral se transmite de generación en generación."</p>
+                        <span class="author">- Legado Vivo</span>
+                        <img src="https://www.machupicchu.biz/imagenes/articulos/trujillo/huanchaco/caballito-de-totora/caballito-de-totora.png" alt="Artesano tejiendo un caballito de totora con destreza." loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="significance" class="section">
+            <div class="container">
+                <h2 class="section-heading">Protección y Significado</h2>
+                <p class="section-subtitle">El reconocimiento formal de esta tradición garantiza su continuidad y subraya su valor como pilar de la identidad regional.</p>
+                <div class="grid-container">
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-award"></i></div>
+                        <h3>Patrimonio Cultural de la Nación</h3>
+                        <p>Fue declarado como tal en 2003, un reconocimiento a su valor como una expresión cultural viva y una de las embarcaciones más antiguas de América.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-gavel"></i></div>
+                        <h3>Protección Legal</h3>
+                        <p>La Ley N° 30837 protege esta tradición ancestral, así como los humedales de totora en Huanchaco, asegurando los recursos para su elaboración.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-heart"></i></div>
+                        <h3>Símbolo de Identidad</h3>
+                        <p>El caballito de totora es un emblema de la región, un símbolo de la resiliencia y la profunda conexión de los pobladores con el mar y sus raíces históricas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section">
+            <div class="container">
+                <h2 class="section-heading">Preguntas Frecuentes</h2>
+                <p class="section-subtitle">Resolvemos algunas de las dudas más comunes sobre esta icónica embarcación.</p>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿Cuánto tiempo dura un caballito de totora?</span>
+                            <span class="icon"><i class="fas fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Un caballito de totora bien construido y cuidado tiene una vida útil de aproximadamente un mes. Después de cada uso, los pescadores lo colocan en posición vertical para que se seque al sol y evitar que la totora se pudra.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿Aún se utiliza para la pesca hoy en día?</span>
+                            <span class="icon"><i class="fas fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sí, aunque en menor medida que en el pasado. Hoy en día, su uso principal es para la pesca artesanal cerca de la costa en balnearios como Huanchaco. También es una gran atracción turística, y se ofrecen paseos a los visitantes.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿Se considera el precursor del surf?</span>
+                            <span class="icon"><i class="fas fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Muchos historiadores y entusiastas del surf sostienen que la práctica de deslizarse sobre las olas con caballitos de totora es una de las formas más antiguas de surf en el mundo, precediendo a la versión polinesia por siglos. Los antiguos peruanos usaban las olas para regresar a la orilla después de pescar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.facebook.com/regionlalibertad" target="_blank" rel="noopener noreferrer" aria-label="Facebook del Gobierno Regional La Libertad"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/grlalibertad" target="_blank" rel="noopener noreferrer" aria-label="Twitter del Gobierno Regional La Libertad"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/regionlalibertad" target="_blank" rel="noopener noreferrer" aria-label="Instagram del Gobierno Regional La Libertad"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="copyright">&copy; 2025 Gobierno Regional de La Libertad. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    <div class="floating-buttons-container">
+         <button id="chat-toggle-btn" class="floating-btn" aria-label="Abrir chat de ayuda">
+    <img src="asistent.svg" alt="Asistente virtual" style="width: 48px; height: 48px;">
+</button>
+
+        <a href="#" class="floating-btn back-to-top-btn" id="back-to-top-btn" aria-label="Volver arriba">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <div id="chat-widget" role="log" aria-live="polite">
+        <div class="chat-header">
+            <h3>Totori - Asistente virtual</h3>
+            <button class="close-btn" id="chat-close-btn" aria-label="Cerrar chat">&times;</button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="chat-message bot-message fade-in">¡Hola! 👋 Soy Totori, tu asistente virtual. ¿En qué puedo ayudarte hoy? 😊</div>
+        </div>
+        <form class="chat-input-form" id="chat-form">
+            <input type="text" id="chat-input" placeholder="Escribe tu pregunta..." autocomplete="off" aria-label="Mensaje a enviar">
+            <button type="submit" id="chat-send-btn" aria-label="Enviar mensaje"><i class="fas fa-paper-plane"></i></button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ===================================
+            // MÓDULO: NAVEGACIÓN Y HEADER
+            // ===================================
+            const header = document.getElementById('header');
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            const handleScroll = () => {
+                header.classList.toggle('scrolled', window.scrollY > 50);
+            };
+
+            const toggleMenu = () => {
+                navMenu.classList.toggle('active');
+                const icon = hamburger.querySelector('i');
+                const isMenuOpen = navMenu.classList.contains('active');
+                icon.classList.toggle('fa-bars', !isMenuOpen);
+                icon.classList.toggle('fa-times', isMenuOpen);
+                hamburger.setAttribute('aria-label', isMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+            };
+
+            const closeMenu = () => {
+                if (navMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            };
+            
+            window.addEventListener('scroll', handleScroll);
+            hamburger.addEventListener('click', toggleMenu);
+            navLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // ===================================
+            // MÓDULO: INTERRUPTOR DE TEMA (DARK MODE)
+            // ===================================
+            const themeSwitcher = document.getElementById('theme-switcher');
+            const docHtml = document.documentElement;
+
+            const updateThemeIcons = (theme) => {
+                themeSwitcher.querySelectorAll('.icon').forEach(icon => {
+                    const isActive = icon.dataset.themeValue === theme;
+                    icon.classList.toggle('active', isActive);
+                    icon.setAttribute('aria-pressed', isActive);
+                });
+            };
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            docHtml.setAttribute('data-theme', savedTheme);
+            updateThemeIcons(savedTheme);
+
+            themeSwitcher.addEventListener('click', (e) => {
+                const selectedIcon = e.target.closest('.icon');
+                if (!selectedIcon || selectedIcon.classList.contains('active')) return;
+                
+                const theme = selectedIcon.dataset.themeValue;
+                docHtml.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+                updateThemeIcons(theme);
+            });
+
+            // ===================================
+            // MÓDULO: FAQ INTERACTIVO
+            // ===================================
+            document.querySelectorAll('.faq-item .faq-question').forEach(question => {
+                question.addEventListener('click', () => {
+                    const item = question.parentElement;
+                    const isActive = item.classList.contains('active');
+                    
+                    // Cierra cualquier otro FAQ abierto
+                    document.querySelectorAll('.faq-item.active').forEach(openItem => {
+                        if (openItem !== item) {
+                            openItem.classList.remove('active');
+                        }
+                    });
+
+                    item.classList.toggle('active');
+                });
+            });
+
+            // ===================================
+            // MÓDULO: BOTÓN "BACK TO TOP"
+            // ===================================
+            const backToTopButton = document.getElementById('back-to-top-btn');
+            window.addEventListener('scroll', () => { backToTopButton.classList.toggle('show', window.scrollY > 300); });
+
+            // ===================================
+            // 🤖 MÓDULO: CHATBOT
+            // ===================================
+            const chatWidget = document.getElementById('chat-widget');
+            const chatToggleBtn = document.getElementById('chat-toggle-btn');
+            const chatCloseBtn = document.getElementById('chat-close-btn');
+            const chatForm = document.getElementById('chat-form');
+            const chatInput = document.getElementById('chat-input');
+            const chatMessages = document.getElementById('chat-messages');
+
+            chatToggleBtn.addEventListener('click', () => {
+                chatWidget.classList.toggle('show');
+                if(chatWidget.classList.contains('show')) {
+                    chatInput.focus();
+                }
+            });
+            chatCloseBtn.addEventListener('click', () => chatWidget.classList.remove('show'));
+
+            chatForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const userInput = chatInput.value.trim();
+                if (userInput === '') return;
+
+                addMessage(userInput, 'user');
+                chatInput.value = '';
+                
+                setTimeout(() => {
+                    showTypingIndicator();
+                    const botResponse = getBotResponse(userInput);
+                    setTimeout(() => {
+                        hideTypingIndicator();
+                        addMessage(botResponse, 'bot');
+                    }, 1200);
+                }, 300);
+            });
+
+            function addMessage(text, sender) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('chat-message', `${sender}-message`);
+                messageElement.textContent = text;
+                chatMessages.appendChild(messageElement);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                // Trigger the fade-in animation
+                requestAnimationFrame(() => {
+                    messageElement.classList.add('fade-in');
+                });
+            }
+
+            let typingIndicator;
+            function showTypingIndicator() {
+                typingIndicator = document.createElement('div');
+                typingIndicator.classList.add('typing-indicator', 'bot-message');
+                typingIndicator.innerHTML = '<span>.</span><span>.</span><span>.</span>';
+                chatMessages.appendChild(typingIndicator);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function hideTypingIndicator() {
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                    typingIndicator = null;
+                }
+            }
+            
+            function levenshteinDistance(a, b) {
+    const matrix = [];
+    for (let i = 0; i <= b.length; i++) {
+        matrix[i] = [i];
+    }
+    for (let j = 0; j <= a.length; j++) {
+        matrix[0][j] = j;
+    }
+
+    for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+            if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j - 1] + 1, // Sustitución
+                    matrix[i][j - 1] + 1,     // Inserción
+                    matrix[i - 1][j] + 1      // Eliminación
+                );
+            }
+        }
+    }
+
+    return matrix[b.length][a.length];
+}
+
+// Función para calcular la distancia de Levenshtein, que mide la semejanza entre dos palabras.
+// Un valor bajo indica una gran semejanza.
+function levenshteinDistance(a, b) {
+    const matrix = [];
+    for (let i = 0; i <= b.length; i++) {
+        matrix[i] = [i];
+    }
+    for (let j = 0; j <= a.length; j++) {
+        matrix[0][j] = j;
+    }
+
+    for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+            if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j - 1] + 1, // Sustitución
+                    matrix[i][j - 1] + 1,     // Inserción
+                    matrix[i - 1][j] + 1      // Eliminación
+                );
+            }
+        }
+    }
+
+    return matrix[b.length][a.length];
+}
+
+// Función principal del bot
+function getBotResponse(input) {
+    const lowerInput = input.toLowerCase();
+    const words = lowerInput.split(' ');
+    const similarityThreshold = 0.4;
+
+    const responses = [
+        // Saludos y despedidas
+        {
+            keyWords: ['hola', 'buenos dias', 'saludos', 'que tal', 'hey', 'un saludo', 'buenos días', 'buenas tardes', 'buenas noches'],
+            response: '¡Hola! Soy tu asistente virtual especializado en el fascinante mundo del **Caballito de Totora**. Estoy aquí para contarte todo sobre esta emblemática embarcación ancestral de la costa peruana. ¿En qué puedo ayudarte hoy?'
+        },
+        {
+            keyWords: ['gracias', 'adios', 'chao', 'despedida', 'bye', 'fue un placer', 'muchas gracias'],
+            response: '¡De nada! Ha sido un placer compartir contigo la historia y la cultura del Caballito de Totora. Si te surge cualquier otra pregunta, no dudes en volver a consultarme. ¡Que tengas un excelente día!'
+        },
+
+        // Historia y origen
+        {
+            keyWords: ['historia', 'antiguedad', 'origen', 'cultura', 'civilizacion', 'antiguo', 'pasado', 'mochica', 'chimú', 'cuando', 'quien lo invento', 'prehispanico'],
+            response: 'La historia del Caballito de Totora es asombrosa, se remonta a más de **3,500 años**. Su diseño y uso han sido documentados en cerámicas, relieves y murales de las antiguas civilizaciones de la costa norte del Perú, como las **culturas Mochica y Chimú**, quienes eran expertos navegantes. A pesar del paso de los milenios, su forma y funcionalidad han permanecido prácticamente inalteradas, lo que lo convierte en una de las embarcaciones más antiguas del mundo aún en uso continuo y un testigo viviente de nuestra historia. Se cree que los pescadores prehispánicos fueron los ingeniosos creadores de esta balsa para su labor diaria.'
+        },
+
+        // Nombre y significado
+        {
+            keyWords: ['por que se llama asi', 'nombre', 'significado', 'razon del nombre', 'porque caballito', 'nombre oficial'],
+            response: 'Se le llama **"Caballito"** de forma coloquial porque el pescador se sienta a horcajadas sobre la embarcación, como si estuviera montando un caballo. Esta posición, además de ser el origen de su nombre, le permite tener un control total y una gran agilidad para maniobrar la balsa con sus pies y un remo de caña. Es un nombre que refleja la íntima conexión del hombre con su herramienta de trabajo y la naturaleza. En la lengua mochica, se le conocía como **"Tup"**.'
+        },
+
+        // Materiales y construcción
+        {
+            keyWords: ['material', 'de que esta hecho', 'totora', 'planta', 'ecologico', 'junco', 'sostenible', 'materiales', 'composicion', 'guangana'],
+            response: 'El Caballito de Totora está hecho exclusivamente de tallos y hojas de **totora** (`Schoenoplectus californicus`), una planta acuática que crece en los humedales costeros del Perú, particularmente en el área de Huanchaco. La totora es ideal por ser ligera, resistente y abundante en la zona. Su uso es un ejemplo de sostenibilidad y del ingenio humano. La balsa está compuesta por dos partes principales: la "madre", el manojo más grande en la base, y el "hijo", el manojo más pequeño encima, unidos firmemente con sogas de totora llamadas **"guangana"**.'
+        },
+        {
+            keyWords: ['como se construye', 'artesanos', 'construccion', 'proceso', 'quien lo hace', 'pasos', 'donde se construye'],
+            response: 'La construcción del Caballito es un arte ancestral que se ha transmitido de generación en generación. Los **artesanos de Huanchaco**, conocidos como "caballiteros", recolectan la totora y la secan al sol durante unos 20 días. Luego, trenzan y amarran los tallos con la soga "guangana" para darle la forma cónica y la distintiva proa levantada, que le permite cortar las olas. Este proceso, que requiere gran destreza y experiencia, puede tomar solo un par de horas a un artesano experimentado. La construcción suele realizarse en la misma playa, en espacios designados para ello, manteniendo viva la tradición y la habilidad artesanal.'
+        },
+
+        // Durabilidad y mantenimiento
+        {
+            keyWords: ['dura', 'duracion', 'cuanto tiempo dura', 'vida util'],
+            response: 'La durabilidad de un Caballito de Totora depende de su uso y cuidado. Generalmente, una balsa utilizada regularmente por un pescador puede durar entre **15 y 45 días**. Después de este tiempo, la totora se satura de agua, pierde su flotabilidad y se vuelve demasiado pesada para ser funcional. Es un ciclo continuo: un caballito se usa hasta que se deteriora y luego se construye uno nuevo, manteniendo viva la tradición y la habilidad artesanal.'
+        },
+        {
+            keyWords: ['como se cuida', 'mantenimiento', 'secado', 'conservar', 'proteger'],
+            response: 'El mantenimiento es un ritual diario. Después de usar el caballito, los pescadores lo llevan a la orilla y lo colocan en **posición vertical, de frente al sol**. Esto permite que el agua escurra por gravedad y que los tallos se sequen por completo. Sin este cuidado, la vida útil de la balsa sería mucho más corta, ya que la fibra se deterioraría y se pudriría rápidamente.'
+        },
+
+        // Ubicación y turismo
+        {
+            keyWords: ['donde', 'ubicacion', 'huanchaco', 'trujillo', 'ver', 'visitar', 'balneario', 'en que ciudad', 'donde estan', 'donde encuentro'],
+            response: 'El lugar principal para ver y experimentar el Caballito de Totora es en la playa de **Huanchaco**, un balneario histórico ubicado en la provincia de Trujillo, en la región de La Libertad. Es aquí donde la tradición sigue viva, y donde puedes ver a los pescadores en su labor diaria, así como participar en paseos y campeonatos de surf. Huanchaco es el corazón de esta tradición y la cuna de sus pescadores.'
+        },
+        {
+            keyWords: ['turismo', 'puedo pasear', 'paseos', 'actividades', 'viajar', 'experiencia'],
+            response: '¡Absolutamente! El turismo es una parte crucial para la preservación de esta tradición. En la playa de Huanchaco, puedes contratar a un pescador local para que te dé un paseo en su caballito. Es una experiencia única que te permite sentir la historia en tus propias manos y apoyar directamente a la comunidad de pescadores. Es una fusión perfecta entre trabajo, cultura y aventura.'
+        },
+
+        // Uso y funcionalidad
+        {
+            keyWords: ['surf', 'olas', 'surfear', 'tabla', 'deporte', 'origen del surf', 'progenitor'],
+            response: '¡Así es! Muchos historiadores y la comunidad surfista consideran al Caballito de Totora el **precursor del surf moderno**. Los pescadores utilizaban la energía de las olas para regresar a la orilla de forma rápida y sin esfuerzo, una práctica que se ha mantenido durante miles de años. Esta ancestral costumbre de "montar" las olas demuestra una profunda conexión y respeto por el mar que se mantiene viva hasta hoy. De hecho, Huanchaco es una de las **"reservas mundiales del surf"**.'
+        },
+        {
+            keyWords: ['para que se usa', 'uso', 'pesca', 'turismo', 'funcionalidad', 'actividad'],
+            response: 'El Caballito de Totora cumple una doble función. Principalmente, es una herramienta de trabajo esencial para la **pesca artesanal** en Huanchaco. Además, es un gran **atractivo turístico**; los visitantes pueden tomar paseos guiados, lo que contribuye a la economía local y a la preservación de la tradición.'
+        },
+        {
+            keyWords: ['es seguro', 'seguridad', 'puedo rentar', 'alquilar', 'paseo', 'clases', 'riesgos'],
+            response: 'Sí, es una actividad muy segura si se realiza con los guías adecuados. Los **caballiteros** de Huanchaco son expertos marineros que conocen el mar a la perfección. Al rentar un caballito, serás guiado por un profesional que te dará todas las indicaciones necesarias. Es importante seguir siempre las recomendaciones del guía y usar un chaleco salvavidas.'
+        },
+        {
+            keyWords: ['como se impulsa', 'remo', 'propulsion'],
+            response: 'Los pescadores impulsan el Caballito de Totora utilizando una caña de bambú larga y delgada, a menudo seccionada por la mitad a lo largo, que funciona como un remo doble. El pescador la sujeta por el centro y la mueve de un lado a otro para avanzar. Este remo también es crucial para mantener el equilibrio al cruzar las olas y al volver a la orilla.'
+        },
+
+        // Datos técnicos y culturales
+        {
+            keyWords: ['simbolo', 'importancia', 'patrimonio', 'cultural', 'representa'],
+            response: 'El Caballito de Totora es mucho más que una simple balsa. Es un **símbolo de la identidad cultural del norte del Perú** y del ingenio de sus antiguas civilizaciones. Por su valor histórico, su rol como tradición viva y su contribución a la cultura local, ha sido declarado **Patrimonio Cultural de la Nación** por el gobierno peruano, lo que subraya su importancia y la necesidad de su preservación.'
+        },
+        {
+            keyWords: ['medidas', 'peso', 'dimensiones', 'caracteristicas'],
+            response: 'Un Caballito de Totora típico mide entre **4 a 5 metros de largo** y cerca de un metro de ancho, con un peso que oscila entre los **45 y 50 kilos**. A pesar de su peso ligero, su construcción robusta le permite soportar una carga útil de hasta 200 kg, incluyendo al pescador y sus aparejos de pesca. Su forma aerodinámica y su proa levantada son clave para su estabilidad y su capacidad para navegar en las olas.'
+        },
+        {
+            keyWords: ['conservacion', 'amenaza', 'escasez', 'contaminacion', 'proteccion', 'desafios'],
+            response: 'La conservación de esta tradición enfrenta desafíos, como la escasez de totora debido a la urbanización, la contaminación de los humedales y la reducción de la pesca. Sin embargo, hay esfuerzos en marcha, incluyendo la creación de reservas ecológicas para proteger los totorales y proyectos para promover la pesca sostenible y el turismo cultural, asegurando que esta tradición se mantenga viva para futuras generaciones. Es una lucha constante para preservar tanto la balsa como el ecosistema del que depende.'
+        },
+        {
+            keyWords: ['fiesta', 'celebracion', 'evento', 'campeonato', 'festival'],
+            response: 'La cultura del Caballito de Totora se celebra activamente en Huanchaco. Cada año se realizan festivales y campeonatos de surf en los que participan tanto locales como turistas. Uno de los eventos más importantes es el festival en honor a San Pedro, el santo patrón de los pescadores, que se celebra en junio y atrae a la comunidad local y a visitantes de todo el mundo.'
+        },
+
+        {
+  keyWords: ['tradición', 'fiesta', 'evento único', 'festividad', 'patrimonio', 'ecoturismo', 'Religión', 'rareza'],
+  response: 'Además del conocido festival de San Pedro (29 de junio) y del Carnaval de Huanchaco (con coronación de reina, luau, desfile, concursos de caballito de totora) existen celebraciones menos frecuentes pero igualmente significativas. Por ejemplo, la fiesta anual en honor a la Virgen del Perpetuo Socorro (o Socorro) en diciembre, cuando familias campesinas pescadoras celebran con platos marinos tradicionales, procesiones y demostraciones de pesca ancestral :contentReference[oaicite:1]{index=1}.\n\nTambién sobresalen celebraciones ancestrales con sincretismo religioso, como las fiestas quinquenales y anuales en honor a la Virgen Candelaria del Socorro, en las que se yuxtaponen ritos prehispánicos y católicos en Huanchaco :contentReference[oaicite:2]{index=2}.\n\nDesde el ámbito ecoturístico, los Pantanos de Huanchaco (los totorales), apartados del circuito festivo, son un espacio vivo donde se cultiva la totora para fabricar los caballitos. La visita a estos humedales permite apreciar cómo la tradición continúa en armonía con el ambiente y los pescadores enseñan estas técnicas a veces a visitantes :contentReference[oaicite:3]{index=3}.\n\nFinalmente, dentro del Mundial de Longboard —más enfocado en el surfing moderno— se realizan eventos paralelos muy originales: regatas de caballitos de totora (individuales y en parejas de pescadores), pruebas de armado y nado, y dramatizaciones teatrales como "Recuperando la memoria del Barro" homenajeando la iconografía Chimú :contentReference[oaicite:4]{index=4}.'
+}
+,
+
+{
+  keyWords: ['innovación', 'ecología', 'artesanía moderna', 'simbiosis medioambiental', 'arte contemporáneo', 'tecnología'],
+  response: '1. **Innovación artesanal con materiales modernos**: En la elaboración de los caballitos de totora, algunos pescadores creativos incorporan trozos de tecnopor (poliestireno expandido) y envases de PET (plástico), lo que mejora la flotabilidad y alarga la vida útil de estas embarcaciones tradicionales. Los tallos de totora, al humedecerse, aumentan de peso, por lo que estos materiales ayudan a compensar esa pérdida. Las cuerdas sintéticas, como el nylon, también se reutilizan constantemente, integrando elementos contemporáneos sin perder la esencia ancestral. :contentReference[oaicite:1]{index=1}\n\n2. **Caballitos de totora como símbolo de sostenibilidad ecológica**: La totora no solo es materia prima para estas embarcaciones, sino que también desempeña un papel crucial en la conservación de los humedales costeros. Los totorales (huachaques) ayudan a mantener el equilibrio ecológico, protegen la línea de costa de la erosión y sirven como hábitat de diversas especies. Esta interdependencia convierte a los caballitos de totora en un símbolo vivo de la armonía entre cultura y medio ambiente. :contentReference[oaicite:2]{index=2}'
+}
+,
+
+
+
+
+
+
+        
+        {
+            keyWords: ['huanchaco', 'trujillo', 'localizacion'],
+            response: 'Huanchaco es el corazón de la tradición del Caballito de Totora. Es un balneario histórico famoso por sus olas, su muelle y, por supuesto, por sus pescadores. Se encuentra a solo unos 15 minutos en auto de la ciudad de Trujillo, la capital de la región de La Libertad, lo que lo hace un destino de visita obligada para cualquier turista interesado en la cultura peruana.'
+        },
+        {
+            keyWords: ['pesca', 'peces', 'pescadores', 'pesca artesanal', 'como pescan', 'que pescan'],
+            response: 'Los pescadores de Huanchaco utilizan el Caballito de Totora para la pesca artesanal de especies locales como **corvina, lenguado, chita y lisa**. Gracias a la agilidad y el bajo calado de la balsa, pueden acercarse a zonas de la orilla donde embarcaciones más grandes no pueden llegar. Sus herramientas principales son redes y anzuelos, siguiendo técnicas transmitidas por sus ancestros que han demostrado ser muy efectivas en estas aguas.'
+        },
+        {
+            keyWords: ['leyenda', 'mito', 'historia'],
+            response: 'A diferencia de otras culturas, no hay leyendas o mitos conocidos que expliquen el origen del Caballito de Totora. Su historia es una de practicidad e ingenio, nacida de la necesidad de los pescadores prehispánicos que encontraron en la totora el material perfecto para su labor. Su historia es real, documentada y tan fascinante como cualquier leyenda, demostrando la capacidad del ser humano para adaptarse a su entorno.'
+        },
+
+
+        {
+  keyWords: ['festival turístico', 'inclusión', 'deporte adaptado', 'niños', 'accesibilidad'],
+  response: 'Un evento poco conocido es el **Festival Turístico Caballito de Totora**, que se celebra en Pimentel (región Lambayeque) cada febrero. Este festival promueve no solo competencias tradicionales con caballitos de totora, sino también deportes de playa inclusivos como vóley playa, cicloturismo y la “Olimplaya”, donde participan personas con discapacidad, integrando el patrimonio cultural con valores de accesibilidad y comunidad.',
+  source: 'ANDINA (Festival Turístico Caballito de Totora 2024)'
+}
+,
+        {
+            keyWords: ['que es', 'que es caballito', 'definicion'],
+            response: 'El Caballito de Totora es una embarcación artesanal, construida con manojos de tallos y hojas de totora, utilizada por los pescadores de la costa norte del Perú desde hace más de 3,500 años. Hoy en día, es un símbolo cultural y una herramienta de trabajo esencial para la comunidad de Huanchaco.'
+        },
+        {
+            keyWords: ['quienes', 'pescadores', 'caballiteros'],
+            response: 'Los **pescadores de Huanchaco** son los herederos de esta tradición. Se les conoce cariñosamente como **"caballiteros"** debido a su habilidad para maniobrar la balsa como si fuera una extensión de su propio cuerpo. Su conocimiento del mar, de las corrientes y de la construcción de las balsas se ha transmitido de forma oral de padres a hijos durante generaciones, lo que los convierte en verdaderos maestros de su oficio.'
+        },
+        {
+            keyWords: ['como se llega', 'como ir', 'transporte'],
+            response: 'Huanchaco es muy accesible. Desde el centro de Trujillo, puedes tomar un taxi o un bus de transporte público que te llevará directamente a la playa de Huanchaco en unos 15 a 20 minutos. Es un viaje corto y directo para sumergirte en la historia y la cultura local.'
+        },
+        {
+            keyWords: ['horario', 'cuando verlos'],
+            response: 'Los pescadores suelen salir a pescar muy temprano en la mañana, alrededor del amanecer, y regresan a lo largo de la mañana. Si quieres verlos en acción y en su ambiente natural, la mejor hora para visitar la playa de Huanchaco es por la mañana temprano.'
+        },
+        {
+            keyWords: ['comida', 'gastronomia', 'restaurantes'],
+            response: 'Huanchaco es famoso por su deliciosa gastronomía marina. Después de un paseo en caballito, puedes disfrutar de platos frescos en los numerosos restaurantes de la orilla. El pescado que se usa en los platos locales a menudo es capturado por los mismos pescadores en sus caballitos.'
+        },
+        {
+            keyWords: ['curiosidades', 'datos curiosos'],
+            response: '¡Claro! Una de las curiosidades más notables es que la totora se seca en la playa al sol, en posición vertical. Esto no solo es para secarla, sino también para compactar la fibra, lo que hace que la balsa sea más resistente y durable. Los pescadores usan sus propios pies y peso para compactar la totora durante el proceso de construcción.'
+        },
+        {
+            keyWords: ['humedales', 'totorales', 'ecosistema'],
+            response: 'La totora crece en los humedales de Huanchaco, un ecosistema de vital importancia. Estos humedales son un refugio para aves migratorias y locales, y son la fuente de la materia prima para los caballitos. Protegerlos es fundamental para mantener viva la tradición y el equilibrio ecológico de la zona.'
+        },
+        {
+            keyWords: ['artefactos', 'arqueologia', 'ceramica'],
+            response: 'El Caballito de Totora no solo es una embarcación viva, sino que también es un artefacto arqueológico. Representaciones de balsas similares y pescadores han sido encontradas en la cerámica de las culturas Mochica y Chimú. Esto demuestra la larga y rica historia de esta herramienta en la vida de los antiguos peruanos.'
+        },
+        {
+            keyWords: ['quien lo patrocina', 'apoyo', 'instituciones'],
+            response: 'La conservación del Caballito de Totora cuenta con el apoyo de diversas instituciones, tanto a nivel local como nacional. El Ministerio de Cultura de Perú y la Municipalidad de Huanchaco trabajan en proyectos para preservar la tradición, proteger los humedales y promover el turismo cultural. Organizaciones no gubernamentales también colaboran en estos esfuerzos.'
+        },
+        {
+            keyWords: ['pescadores modernos', 'tradicion'],
+            response: 'Hoy en día, aunque muchos pescadores usan botes motorizados, una comunidad de pescadores de Huanchaco sigue utilizando el Caballito de Totora. Lo consideran no solo una herramienta de trabajo, sino una parte fundamental de su identidad y herencia cultural. Mantienen la tradición viva, demostrando que el pasado y el presente pueden coexistir.'
+        },
+        {
+            keyWords: ['vestimenta', 'ropa de pescador'],
+            response: 'La vestimenta tradicional de los pescadores de caballito es sencilla y práctica. Suelen usar ropa de algodón, sombreros para protegerse del sol y, en ocasiones, trajes especiales de neopreno en días fríos. La simplicidad de su atuendo refleja la practicidad y la dureza de su trabajo diario en el mar.'
+        },
+        {
+            keyWords: ['comparacion con otros', 'similar'],
+            response: 'Aunque existen embarcaciones de totora en otras partes de Sudamérica, como el lago Titicaca (las famosas islas de los Uros), el Caballito de Totora de Huanchaco es único por su forma y su uso para la pesca en el mar. La versión del lago es más una balsa de transporte, mientras que el caballito es una herramienta de pesca individual y maniobrable en las olas.'
+        },
+        {
+            keyWords: ['proa', 'popa', 'partes'],
+            response: 'El Caballito de Totora tiene dos partes principales: la **proa** (la parte delantera levantada) y la **popa** (la parte trasera más ancha). La proa elevada está diseñada para cortar y sobrepasar las olas, mientras que la popa es la parte donde se sienta el pescador. La habilidad del pescador se demuestra en cómo balancea su cuerpo para controlar estas dos partes.'
+        },
+        {
+            keyWords: ['pesca en el caballito', 'herramientas de pesca'],
+            response: 'Los pescadores de caballito usan herramientas de pesca tradicionales, como redes de mano y anzuelos. La balsa les permite acercarse sigilosamente a los bancos de peces. La pesca con el caballito de totora es considerada una forma de pesca sostenible, ya que no utiliza redes de arrastre ni motores que puedan dañar el ecosistema.'
+        },
+        {
+            keyWords: ['curiosidades', 'datos curiosos'],
+            response: '¡Claro! Una de las curiosidades más notables es que la totora se seca en la playa al sol, en posición vertical. Esto no solo es para secarla, sino también para compactar la fibra, lo que hace que la balsa sea más resistente y durable. Los pescadores usan sus propios pies y peso para compactar la totora durante el proceso de construcción.'
+        },
+        {
+            keyWords: ['quien lo patrocina', 'apoyo', 'instituciones'],
+            response: 'La conservación del Caballito de Totora cuenta con el apoyo de diversas instituciones, tanto a nivel local como nacional. El Ministerio de Cultura de Perú y la Municipalidad de Huanchaco trabajan en proyectos para preservar la tradición, proteger los humedales y promover el turismo cultural. Organizaciones no gubernamentales también colaboran en estos esfuerzos.'
+        },
+        {
+            keyWords: ['pescadores modernos', 'tradicion'],
+            response: 'Hoy en día, aunque muchos pescadores usan botes motorizados, una comunidad de pescadores de Huanchaco sigue utilizando el Caballito de Totora. Lo consideran no solo una herramienta de trabajo, sino una parte fundamental de su identidad y herencia cultural. Mantienen la tradición viva, demostrando que el pasado y el presente pueden coexistir.'
+        },
+        {
+            keyWords: ['vestimenta', 'ropa de pescador'],
+            response: 'La vestimenta tradicional de los pescadores de caballito es sencilla y práctica. Suelen usar ropa de algodón, sombreros para protegerse del sol y, en ocasiones, trajes especiales de neopreno en días fríos. La simplicidad de su atuendo refleja la practicidad y la dureza de su trabajo diario en el mar.'
+        },
+        {
+            keyWords: ['comparacion con otros', 'similar'],
+            response: 'Aunque existen embarcaciones de totora en otras partes de Sudamérica, como el lago Titicaca (las famosas islas de los Uros), el Caballito de Totora de Huanchaco es único por su forma y su uso para la pesca en el mar. La versión del lago es más una balsa de transporte, mientras que el caballito es una herramienta de pesca individual y maniobrable en las olas.'
+        },
+        {
+            keyWords: ['proa', 'popa', 'partes'],
+            response: 'El Caballito de Totora tiene dos partes principales: la **proa** (la parte delantera levantada) y la **popa** (la parte trasera más ancha). La proa elevada está diseñada para cortar y sobrepasar las olas, mientras que la popa es la parte donde se sienta el pescador. La habilidad del pescador se demuestra en cómo balancea su cuerpo para controlar estas dos partes.'
+        },
+        {
+            keyWords: ['pesca en el caballito', 'herramientas de pesca'],
+            response: 'Los pescadores de caballito usan herramientas de pesca tradicionales, como redes de mano y anzuelos. La balsa les permite acercarse sigilosamente a los bancos de peces. La pesca con el caballito de totora es considerada una forma de pesca sostenible, ya que no utiliza redes de arrastre ni motores que puedan dañar el ecosistema.'
+        },
+        {
+            keyWords: ['por que se llama asi', 'nombre', 'significado', 'razon del nombre', 'porque caballito'],
+            response: 'Se le llama **"Caballito"** de forma coloquial porque el pescador se sienta a horcajadas sobre la embarcación, como si estuviera montando un caballo. Esta posición, además de ser el origen de su nombre, le permite tener un control total y una gran agilidad para maniobrar la balsa con sus pies y un remo de caña. Es un nombre que refleja la íntima conexión del hombre con su herramienta de trabajo y la naturaleza. En la lengua mochica, se le conocía como **"Tup"**.'
+        },
+        {
+            keyWords: ['material', 'de que esta hecho', 'totora', 'planta', 'ecologico', 'junco', 'sostenible', 'materiales', 'composicion', 'guangana'],
+            response: 'El Caballito de Totora está hecho exclusivamente de tallos y hojas de **totora** (`Schoenoplectus californicus`), una planta acuática que crece en los humedales costeros del Perú, particularmente en el área de Huanchaco. La totora es ideal por ser ligera, resistente y abundante en la zona. Su uso es un ejemplo de sostenibilidad y del ingenio humano. La balsa está compuesta por dos partes principales: la "madre", el manojo más grande en la base, y el "hijo", el manojo más pequeño encima, unidos firmemente con sogas de totora llamadas **"guangana"**.'
+        },
+        {
+            keyWords: ['como se construye', 'artesanos', 'construccion', 'proceso', 'quien lo hace', 'pasos', 'donde se construye'],
+            response: 'La construcción del Caballito es un arte ancestral que se ha transmitido de generación en generación. Los **artesanos de Huanchaco**, conocidos como "caballiteros", recolectan la totora y la secan al sol durante unos 20 días. Luego, trenzan y amarran los tallos con la soga "guangana" para darle la forma cónica y la distintiva proa levantada, que le permite cortar las olas. Este proceso, que requiere gran destreza y experiencia, puede tomar solo un par de horas a un artesano experimentado. La construcción suele realizarse en la misma playa, en espacios designados para ello, manteniendo viva la tradición y la habilidad artesanal.'
+        },
+        {
+            keyWords: ['dura', 'duracion', 'cuanto tiempo dura', 'vida util'],
+            response: 'La durabilidad de un Caballito de Totora depende de su uso y cuidado. Generalmente, una balsa utilizada regularmente por un pescador puede durar entre **15 y 45 días**. Después de este tiempo, la totora se satura de agua, pierde su flotabilidad y se vuelve demasiado pesada para ser funcional. Es un ciclo continuo: un caballito se usa hasta que se deteriora y luego se construye uno nuevo, manteniendo viva la tradición y la habilidad artesanal.'
+        },
+        {
+            keyWords: ['como se cuida', 'mantenimiento', 'secado', 'conservar', 'proteger'],
+            response: 'El mantenimiento es un ritual diario. Después de usar el caballito, los pescadores lo llevan a la orilla y lo colocan en **posición vertical, de frente al sol**. Esto permite que el agua escurra por gravedad y que los tallos se sequen por completo. Sin este cuidado, la vida útil de la balsa sería mucho más corta, ya que la fibra se deterioraría y se pudriría rápidamente.'
+        },
+        {
+            keyWords: ['donde', 'ubicacion', 'huanchaco', 'trujillo', 'ver', 'visitar', 'balneario', 'en que ciudad', 'donde estan', 'donde encuentro'],
+            response: 'El lugar principal para ver y experimentar el Caballito de Totora es en la playa de **Huanchaco**, un balneario histórico ubicado en la provincia de Trujillo, en la región de La Libertad. Es aquí donde la tradición sigue viva, y donde puedes ver a los pescadores en su labor diaria, así como participar en paseos y campeonatos de surf. Huanchaco es el corazón de esta tradición y la cuna de sus pescadores.'
+        },
+        {
+            keyWords: ['surf', 'olas', 'surfear', 'tabla', 'deporte', 'origen del surf', 'progenitor'],
+            response: '¡Así es! Muchos historiadores y la comunidad surfista consideran al Caballito de Totora el **precursor del surf moderno**. Los pescadores utilizaban la energía de las olas para regresar a la orilla de forma rápida y sin esfuerzo, una práctica que se ha mantenido durante miles de años. Esta ancestral costumbre de "montar" las olas demuestra una profunda conexión y respeto por el mar que se mantiene viva hasta hoy. De hecho, Huanchaco es una de las **"reservas mundiales del surf"**.'
+        },
+        {
+            keyWords: ['para que se usa', 'uso', 'pesca', 'turismo', 'funcionalidad', 'actividad'],
+            response: 'El Caballito de Totora cumple una doble función. Principalmente, es una herramienta de trabajo esencial para la **pesca artesanal** en Huanchaco. Además, es un gran **atractivo turístico**; los visitantes pueden tomar paseos guiados, lo que contribuye a la economía local y a la preservación de la tradición.'
+        },
+        {
+            keyWords: ['es seguro', 'seguridad', 'puedo rentar', 'alquilar', 'paseo', 'clases', 'riesgos'],
+            response: 'Sí, es una actividad muy segura si se realiza con los guías adecuados. Los **caballiteros** de Huanchaco son expertos marineros que conocen el mar a la perfección. Al rentar un caballito, serás guiado por un profesional que te dará todas las indicaciones necesarias. Es importante seguir siempre las recomendaciones del guía y usar un chaleco salvavidas.'
+        },
+        {
+            keyWords: ['simbolo', 'importancia', 'patrimonio', 'cultural', 'representa'],
+            response: 'El Caballito de Totora es mucho más que una simple balsa. Es un **símbolo de la identidad cultural del norte del Perú** y del ingenio de sus antiguas civilizaciones. Por su valor histórico, su rol como tradición viva y su contribución a la cultura local, ha sido declarado **Patrimonio Cultural de la Nación** por el gobierno peruano, lo que subraya su importancia y la necesidad de su preservación.'
+        },
+        {
+            keyWords: ['medidas', 'peso', 'dimensiones', 'caracteristicas'],
+            response: 'Un Caballito de Totora típico mide entre **4 a 5 metros de largo** y cerca de un metro de ancho, con un peso que oscila entre los **45 y 50 kilos**. A pesar de su peso ligero, su construcción robusta le permite soportar una carga útil de hasta 200 kg, incluyendo al pescador y sus aparejos de pesca. Su forma aerodinámica y su proa levantada son clave para su estabilidad y su capacidad para navegar en las olas.'
+        },
+        {
+            keyWords: ['conservacion', 'amenaza', 'escasez', 'contaminacion', 'proteccion', 'desafios'],
+            response: 'La conservación de esta tradición enfrenta desafíos, como la escasez de totora debido a la urbanización, la contaminación de los humedales y la reducción de la pesca. Sin embargo, hay esfuerzos en marcha, incluyendo la creación de reservas ecológicas para proteger los totorales y proyectos para promover la pesca sostenible y el turismo cultural, asegurando que esta tradición se mantenga viva para futuras generaciones. Es una lucha constante para preservar tanto la balsa como el ecosistema del que depende.'
+        },
+        {
+            keyWords: ['fiesta', 'celebracion', 'evento', 'campeonato', 'festival'],
+            response: 'La cultura del Caballito de Totora se celebra activamente en Huanchaco. Cada año se realizan festivales y campeonatos de surf en los que participan tanto locales como turistas. Uno de los eventos más importantes es el festival en honor a San Pedro, el santo patrón de los pescadores, que se celebra en junio y atrae a la comunidad local y a visitantes de todo el mundo.'
+        },
+        {
+            keyWords: ['huanchaco', 'trujillo', 'localizacion'],
+            response: 'Huanchaco es el corazón de la tradición del Caballito de Totora. Es un balneario histórico famoso por sus olas, su muelle y, por supuesto, por sus pescadores. Se encuentra a solo unos 15 minutos en auto de la ciudad de Trujillo, la capital de la región de La Libertad, lo que lo hace un destino de visita obligada para cualquier turista interesado en la cultura peruana.'
+        },
+        {
+            keyWords: ['pesca', 'peces', 'pescadores', 'pesca artesanal', 'como pescan', 'que pescan'],
+            response: 'Los pescadores de Huanchaco utilizan el Caballito de Totora para la pesca artesanal de especies locales como **corvina, lenguado, chita y lisa**. Gracias a la agilidad y el bajo calado de la balsa, pueden acercarse a zonas de la orilla donde embarcaciones más grandes no pueden llegar. Sus herramientas principales son redes y anzuelos, siguiendo técnicas transmitidas por sus ancestros que han demostrado ser muy efectivas en estas aguas.'
+        },
+        {
+            keyWords: ['leyenda', 'mito', 'historia'],
+            response: 'A diferencia de otras culturas, no hay leyendas o mitos conocidos que expliquen el origen del Caballito de Totora. Su historia es una de practicidad e ingenio, nacida de la necesidad de los pescadores prehispánicos que encontraron en la totora el material perfecto para su labor. Su historia es real, documentada y tan fascinante como cualquier leyenda, demostrando la capacidad del ser humano para adaptarse a su entorno.'
+        },
+        {
+            keyWords: ['que es', 'que es caballito', 'definicion'],
+            response: 'El Caballito de Totora es una embarcación artesanal, construida con manojos de tallos y hojas de totora, utilizada por los pescadores de la costa norte del Perú desde hace más de 3,500 años. Hoy en día, es un símbolo cultural y una herramienta de trabajo esencial para la comunidad de Huanchaco.'
+        },
+        {
+            keyWords: ['quienes', 'pescadores', 'caballiteros'],
+            response: 'Los **pescadores de Huanchaco** son los herederos de esta tradición. Se les conoce cariñosamente como **"caballiteros"** debido a su habilidad para maniobrar la balsa como si fuera una extensión de su propio cuerpo. Su conocimiento del mar, de las corrientes y de la construcción de las balsas se ha transmitido de forma oral de padres a hijos durante generaciones, lo que los convierte en verdaderos maestros de su oficio.'
+        },
+        {
+            keyWords: ['como se llega', 'como ir', 'transporte'],
+            response: 'Huanchaco es muy accesible. Desde el centro de Trujillo, puedes tomar un taxi o un bus de transporte público que te llevará directamente a la playa de Huanchaco en unos 15 a 20 minutos. Es un viaje corto y directo para sumergirte en la historia y la cultura local.'
+        },
+        {
+            keyWords: ['horario', 'cuando verlos'],
+            response: 'Los pescadores suelen salir a pescar muy temprano en la mañana, alrededor del amanecer, y regresan a lo largo de la mañana. Si quieres verlos en acción y en su ambiente natural, la mejor hora para visitar la playa de Huanchaco es por la mañana temprano.'
+        },
+        {
+            keyWords: ['comida', 'gastronomia', 'restaurantes'],
+            response: 'Huanchaco es famoso por su deliciosa gastronomía marina. Después de un paseo en caballito, puedes disfrutar de platos frescos en los numerosos restaurantes de la orilla. El pescado que se usa en los platos locales a menudo es capturado por los mismos pescadores en sus caballitos.'
+        },
+        {
+            keyWords: ['curiosidades', 'datos curiosos'],
+            response: '¡Claro! Una de las curiosidades más notables es que la totora se seca en la playa al sol, en posición vertical. Esto no solo es para secarla, sino también para compactar la fibra, lo que hace que la balsa sea más resistente y durable. Los pescadores usan sus propios pies y peso para compactar la totora durante el proceso de construcción.'
+        },
+        {
+            keyWords: ['humedales', 'totorales', 'ecosistema'],
+            response: 'La totora crece en los humedales de Huanchaco, un ecosistema de vital importancia. Estos humedales son un refugio para aves migratorias y locales, y son la fuente de la materia prima para los caballitos. Protegerlos es fundamental para mantener viva la tradición y el equilibrio ecológico de la zona.'
+        },
+        {
+            keyWords: ['artefactos', 'arqueologia', 'ceramica'],
+            response: 'El Caballito de Totora no solo es una embarcación viva, sino que también es un artefacto arqueológico. Representaciones de balsas similares y pescadores han sido encontradas en la cerámica de las culturas Mochica y Chimú. Esto demuestra la larga y rica historia de esta herramienta en la vida de los antiguos peruanos.'
+        },
+        {
+            keyWords: ['quien lo patrocina', 'apoyo', 'instituciones'],
+            response: 'La conservación del Caballito de Totora cuenta con el apoyo de diversas instituciones, tanto a nivel local como nacional. El Ministerio de Cultura de Perú y la Municipalidad de Huanchaco trabajan en proyectos para preservar la tradición, proteger los humedales y promover el turismo cultural. Organizaciones no gubernamentales también colaboran en estos esfuerzos.'
+        },
+        {
+            keyWords: ['pescadores modernos', 'tradicion'],
+            response: 'Hoy en día, aunque muchos pescadores usan botes motorizados, una comunidad de pescadores de Huanchaco sigue utilizando el Caballito de Totora. Lo consideran no solo una herramienta de trabajo, sino una parte fundamental de su identidad y herencia cultural. Mantienen la tradición viva, demostrando que el pasado y el presente pueden coexistir.'
+        },
+        {
+            keyWords: ['vestimenta', 'ropa de pescador'],
+            response: 'La vestimenta tradicional de los pescadores de caballito es sencilla y práctica. Suelen usar ropa de algodón, sombreros para protegerse del sol y, en ocasiones, trajes especiales de neopreno en días fríos. La simplicidad de su atuendo refleja la practicidad y la dureza de su trabajo diario en el mar.'
+        },
+        {
+            keyWords: ['comparacion con otros', 'similar'],
+            response: 'Aunque existen embarcaciones de totora en otras partes de Sudamérica, como el lago Titicaca (las famosas islas de los Uros), el Caballito de Totora de Huanchaco es único por su forma y su uso para la pesca en el mar. La versión del lago es más una balsa de transporte, mientras que el caballito es una herramienta de pesca individual y maniobrable en las olas.'
+        },
+        {
+            keyWords: ['proa', 'popa', 'partes'],
+            response: 'El Caballito de Totora tiene dos partes principales: la **proa** (la parte delantera levantada) y la **popa** (la parte trasera más ancha). La proa elevada está diseñada para cortar y sobrepasar las olas, mientras que la popa es la parte donde se sienta el pescador. La habilidad del pescador se demuestra en cómo balancea su cuerpo para controlar estas dos partes.'
+        },
+        {
+            keyWords: ['pesca en el caballito', 'herramientas de pesca'],
+            response: 'Los pescadores de caballito usan herramientas de pesca tradicionales, como redes de mano y anzuelos. La balsa les permite acercarse sigilosamente a los bancos de peces. La pesca con el caballito de totora es considerada una forma de pesca sostenible, ya que no utiliza redes de arrastre ni motores que puedan dañar el ecosistema.'
+        },
+        {
+            keyWords: ['flotabilidad', 'como flota'],
+            response: 'La flotabilidad del caballito se debe a que los tallos de totora, aunque son plantas acuáticas, contienen bolsas de aire en su interior. Cuando están secos y compactados, estas bolsas de aire le dan a la balsa la capacidad de flotar y soportar el peso del pescador. Con el tiempo, la totora se satura de agua y pierde esa flotabilidad, por lo que es necesario un secado constante.'
+        },
+        {
+            keyWords: ['caballito en el arte', 'arte', 'pintura'],
+            response: 'El Caballito de Totora ha sido una fuente de inspiración para numerosos artistas. Es un motivo recurrente en la cerámica precolombina, la pintura y la fotografía moderna, ya que representa la identidad cultural del norte del Perú y la relación simbiótica entre el hombre, la naturaleza y el mar. Es un ícono visual que trasciende el tiempo.'
+        },
+        {
+            keyWords: ['festividad', 'dia del pescador'],
+            response: 'La festividad más importante relacionada con el caballito es el **Día de San Pedro y San Pablo**, el 29 de junio. En Huanchaco, los pescadores celebran a su santo patrón, San Pedro, con una procesión que incluye un recorrido en caballitos por la bahía. Es una celebración llena de fe, tradición y color que rinde homenaje a la herencia marítima de la comunidad.'
+        },
+        {
+            keyWords: ['proa levantada', 'por que es asi'],
+            response: 'La proa del Caballito de Totora está levantada intencionalmente para funcionar como un rompeolas. Su diseño aerodinámico permite que la balsa "corte" las olas en lugar de chocar contra ellas. Esto facilita el avance y la estabilidad del pescador, lo que le permite regresar a la orilla de forma segura, incluso en condiciones de oleaje fuerte.'
+        },
+        {
+            keyWords: ['sostenibilidad', 'ecologia'],
+            response: 'La tradición del Caballito de Totora es un modelo de sostenibilidad. La totora es un recurso renovable que se cosecha sin dañar el ecosistema del humedal, y la embarcación no genera contaminación, ya que no usa motor ni combustibles. La pesca artesanal que se realiza con ella también es respetuosa con el medio ambiente, contribuyendo a la salud del mar.'
+        },
+        {
+            keyWords: ['quien lo patrocina', 'apoyo', 'instituciones'],
+            response: 'La conservación del Caballito de Totora cuenta con el apoyo de diversas instituciones, tanto a nivel local como nacional. El Ministerio de Cultura de Perú y la Municipalidad de Huanchaco trabajan en proyectos para preservar la tradición, proteger los humedales y promover el turismo cultural. Organizaciones no gubernamentales también colaboran en estos esfuerzos.'
+        },
+        {
+            keyWords: ['pescadores modernos', 'tradicion'],
+            response: 'Hoy en día, aunque muchos pescadores usan botes motorizados, una comunidad de pescadores de Huanchaco sigue utilizando el Caballito de Totora. Lo consideran no solo una herramienta de trabajo, sino una parte fundamental de su identidad y herencia cultural. Mantienen la tradición viva, demostrando que el pasado y el presente pueden coexistir.'
+        },
+        {
+            keyWords: ['vestimenta', 'ropa de pescador'],
+            response: 'La vestimenta tradicional de los pescadores de caballito es sencilla y práctica. Suelen usar ropa de algodón, sombreros para protegerse del sol y, en ocasiones, trajes especiales de neopreno en días fríos. La simplicidad de su atuendo refleja la practicidad y la dureza de su trabajo diario en el mar.'
+        },
+        {
+            keyWords: ['comparacion con otros', 'similar'],
+            response: 'Aunque existen embarcaciones de totora en otras partes de Sudamérica, como el lago Titicaca (las famosas islas de los Uros), el Caballito de Totora de Huanchaco es único por su forma y su uso para la pesca en el mar. La versión del lago es más una balsa de transporte, mientras que el caballito es una herramienta de pesca individual y maniobrable en las olas.'
+        },
+        {
+            keyWords: ['proa', 'popa', 'partes'],
+            response: 'El Caballito de Totora tiene dos partes principales: la **proa** (la parte delantera levantada) y la **popa** (la parte trasera más ancha). La proa elevada está diseñada para cortar y sobrepasar las olas, mientras que la popa es la parte donde se sienta el pescador. La habilidad del pescador se demuestra en cómo balancea su cuerpo para controlar estas dos partes.'
+        },
+        {
+            keyWords: ['pesca en el caballito', 'herramientas de pesca'],
+            response: 'Los pescadores de caballito usan herramientas de pesca tradicionales, como redes de mano y anzuelos. La balsa les permite acercarse sigilosamente a los bancos de peces. La pesca con el caballito de totora es considerada una forma de pesca sostenible, ya que no utiliza redes de arrastre ni motores que puedan dañar el ecosistema.'
+        }
+    ];
+
+    let bestMatchResponse = null;
+    let highestSimilarity = 0;
+
+    for (const responseObj of responses) {
+        for (const keyWord of responseObj.keyWords) {
+            for (const word of words) {
+                const distance = levenshteinDistance(word, keyWord);
+                const similarity = 1 - (distance / Math.max(word.length, keyWord.length));
+
+                if (similarity > highestSimilarity && similarity > similarityThreshold) {
+                    highestSimilarity = similarity;
+                    bestMatchResponse = responseObj.response;
+                }
+            }
+        }
+    }
+
+    if (bestMatchResponse) {
+        return bestMatchResponse;
+    }
+
+    return 'Lo siento, no entendí tu pregunta. Te invito a que intentes con palabras clave como **historia, material, duración, ubicación, surf o pesca** para que pueda darte una respuesta más precisa.';
+}
+        });
+    </script>
+</body>
+</html>
